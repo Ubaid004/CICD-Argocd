@@ -1,5 +1,10 @@
 pipeline{
     agent any
+
+    environment{
+        Dockerhun_Usrname= "ubaid004"
+        Credentials= "#Ubaid004"
+    }
     stages{
         stage("Checkout SCM"){
             steps{
@@ -16,9 +21,8 @@ pipeline{
         stage("push"){
             steps{
                 script {
-                    withCredentials([usernameColonPassword(credentialsId: 'dockerhubid', variable: 'dockerhubCredentials')]) {
+                    docker.withRegistry('', CredCredentialse) {
                         sh '''
-                        docker login -u ubaid004 -p {dockerhubCredentials}
                         docker tag cicd-argocd ubaid004/cicd-argocd:cicd-argocd
                         docker push ubaid004/cicd-argocd:cicd-argocd
                         '''
