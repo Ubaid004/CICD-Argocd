@@ -30,6 +30,12 @@ pipeline{
 
                 }
             }
+            stage("delete Docker img"){
+                script{
+                    sh 'docker rmi ubaid004/cicd-argocd:cicd-argocd'
+                    sh 'docker rmi ubaid004/cicd-argocd:latest'
+                }
+            }
         }
     }
 }
