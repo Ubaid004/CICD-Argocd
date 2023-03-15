@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: cicd-argocd
+
+  labels:
+
+    app: cicd-argocd
+
+spec:
+
+  replicas: 2
+
+  selector:
+
+    matchLabels:
+
+      app: cicd-argocd
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: cicd-argocd
+
+    spec:
+
+      containers:
+
+      - name: cicd-argocd-image
+
+        image: ubaid004/cicd-argocd
+
+        ports:
+
+        - containerPort: 5000
