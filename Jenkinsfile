@@ -3,7 +3,7 @@ pipeline{
 
     environment{
         Dockerhun_Usrname= "ubaid004"
-        Credentials= "#Ubaid004"
+        Credentials= "dockerhub"
     }
     stages{
         stage("Checkout SCM"){
