@@ -7,8 +7,10 @@ pipeline{
             }
         }
         stage("build"){
-            script {
+            steps{
+                script {
                 sh 'docker build . -t cicd-argocd'
+                }
             }
         }
         stage("push"){
@@ -26,4 +28,4 @@ pipeline{
             }
         }
     }
-} 
+}
