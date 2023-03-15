@@ -21,7 +21,7 @@ pipeline{
         stage("push"){
             steps{
                 script {
-                    docker.withRegistry('', Credentialse) {
+                    docker.withRegistry('', Credentials) {
                         sh '''
                         docker tag cicd-argocd ubaid004/cicd-argocd:cicd-argocd
                         docker push ubaid004/cicd-argocd:cicd-argocd
